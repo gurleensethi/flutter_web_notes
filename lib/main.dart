@@ -259,9 +259,8 @@ class NoteWidget extends StatelessWidget {
       onLongPress: this.onDelete,
       child: LayoutBuilder(
         builder: (context, constraints) {
-          final title = (note.title == null || note.title.isEmpty)
-              ? "Empty Note..."
-              : note.title;
+          final bool isEmptyNote = (note.title == null || note.title.isEmpty);
+          final title = isEmptyNote ? "Empty Note" : note.title;
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
@@ -272,6 +271,7 @@ class NoteWidget extends StatelessWidget {
                   title,
                   style: TextStyle(
                     fontSize: 20.0,
+                    color: isEmptyNote ? Colors.grey : Colors.black,
                   ),
                 ),
               ),
