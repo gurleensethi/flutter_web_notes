@@ -6,6 +6,13 @@ on:
       - master
 
 jobs:
+  hello:
+    name: Testing Custom Github Action
+    runs-on: ubuntu-latest
+    steps:
+    - uses:  gurleensethi/flutter-github-pages@v1
+      with:
+         who-to-greet: 'Gurleen Sethi'
   build:
     name: Build Web
     runs-on: ubuntu-latest    
